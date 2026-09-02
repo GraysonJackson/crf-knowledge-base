@@ -1096,3 +1096,38 @@ router.post('/login', async (request, response) => {
 });
 
 export default router;
+---
+
+## 11. TOPIC EXPANSION — `github.com/topics/ctf-writeups` (2026-09 sweep)
+
+### Additional source repos reviewed
+- `perfectblue/ctf-writeups` (year-indexed team writeups)
+- `Dvd848/CTFs` (event/year-organized large writeup set)
+- `Adamkadaban/CTFs` (writeups + broad CTF cheat sheet)
+- `mito753/Kernel-Exploit-Dojo` (kernel-pwn challenge index + technique map)
+- `Ignitetechnologies/Privilege-Escalation` (priv-esc method index)
+- `Ignitetechnologies/Vulnhub-CTF-Writeups` (large machine/writeup catalog)
+
+### New reusable patterns to apply during solves
+1. **Year/Event/Challenge indexing scales best**
+   Organize notes as `year -> event -> challenge` to preserve chronology and make later retrieval fast (seen in multiple large writeup repos).
+
+2. **Technique-first cross-index beats category-only notes**
+   Keep both challenge pages and a technique index (e.g., UAF, race, modprobe_path, KASLR bypass) so you can jump from symptom to known exploitation recipe quickly.
+
+3. **Kernel-pwn pipeline should be explicit and repeatable**
+   Track: bug class -> primitive (AAR/AAW/RIP) -> final privesc path (`commit_creds`, `modprobe_path`, `core_pattern`, Dirty Pipe/page-cache overwrite), with mitigations considered (SMEP/SMAP/KPTI/KASLR).
+
+4. **Priv-esc enumeration should be checklist-driven**
+   Always enumerate: sudo rights, SUID/SGID, PATH abuse, capabilities, writable scripts/files, cronjobs, Docker/LXD, NFS, service misconfigs (Redis/MySQL/Exim), kernel version/exploitability.
+
+5. **Difficulty and solve-count metadata improve triage**
+   Capture challenge difficulty + solve counts where available to pick likely-first-win routes and prioritize fastest exploit families under time pressure.
+
+6. **Store practice-platform pivots with challenge notes**
+   Keep direct links between CTF-like web/pwn tasks and box/lab follow-up practice (HTB/THM/VulnHub style) to reinforce repeated exploit patterns.
+
+### Immediate solver heuristics added from this sweep
+- If kernel challenge: test for **UAF + reclaim targets** first (`tty_struct`, `pipe_buffer`, `msg_msg`, `seq_operations`).
+- If local privesc machine: run **enum-by-class** before exploit hunting; map findings to known exploit families.
+- If many writeups exist for same event/challenge type: prioritize extracting **invariant exploit primitives** over one-off payload details.
