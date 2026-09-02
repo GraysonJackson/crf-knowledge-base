@@ -13,6 +13,7 @@ Create a strong, reusable knowledge base from multiple challenge repositories an
 - https://github.com/CodingAP/js-gauntlet-2
 - https://github.com/theZMC/edmotion
 - https://github.com/GraysonJackson/CTF
+- Additional topic sweep sources: perfectblue/ctf-writeups, Dvd848/CTFs, Adamkadaban/CTFs, mito753/Kernel-Exploit-Dojo, IgniteTechnologies writeup/priv-esc indexes
 
 ## Main AI Feed File
 - `/home/runner/work/crf-knowledge-base/crf-knowledge-base/AI_KNOWLEDGE.md`

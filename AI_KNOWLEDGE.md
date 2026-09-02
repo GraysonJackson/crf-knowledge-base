@@ -11,6 +11,7 @@ Build a reusable problem-solving playbook from these sources:
 - https://github.com/CodingAP/js-gauntlet-2
 - https://github.com/theZMC/edmotion
 - https://github.com/GraysonJackson/CTF
+- Additional topic sweep sources: perfectblue/ctf-writeups, Dvd848/CTFs, Adamkadaban/CTFs, mito753/Kernel-Exploit-Dojo, IgniteTechnologies writeup/priv-esc indexes
 
 Primary goal: help an AI identify challenge type fast, run the right first checks, and converge on a solve path.
 
